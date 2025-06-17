@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZ-900 Study Guide - Home</title>
+  <meta name="description" content="Interactive, accessible, and modern study guide for Microsoft Azure Fundamentals (AZ-900) certification.">
+  <meta name="keywords" content="AZ-900, Microsoft Azure, study guide, certification, cloud, fundamentals, webapp">
+  <meta name="author" content="WannabeCoderLuc">
+  <meta property="og:title" content="AZ-900 Study Guide">
+  <meta property="og:description" content="Master Microsoft Azure Fundamentals with interactive notes, real exam questions, and a beautiful, modern interface.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wannabecoderluc.github.io/az900study/">
+  <meta property="og:image" content="/favicon.ico">
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AZ-900 Study Guide">
+  <meta name="twitter:description" content="Master Microsoft Azure Fundamentals with interactive notes, real exam questions, and a beautiful, modern interface.">
+  <meta name="twitter:image" content="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-200 dark:from-gray-900 dark:to-gray-800 min-h-screen flex flex-col">
+  <a href="#main-content" class="sr-only focus:not-sr-only absolute left-2 top-2 bg-blue-700 text-white px-3 py-1 rounded z-50">Skip to main content</a>
+  <header class="bg-white dark:bg-gray-900 shadow py-4" role="banner">
+    <div class="max-w-3xl mx-auto flex justify-between items-center px-4">
+      <h1 class="text-3xl font-extrabold text-blue-700 dark:text-blue-300 tracking-tight">AZ-900 Study Guide</h1>
+      <nav class="space-x-4 flex items-center" aria-label="Main navigation">
+        <button disabled class="px-4 py-2 rounded font-semibold focus:outline focus:ring-2 focus:ring-blue-500 transition bg-blue-600 text-white dark:bg-blue-400 dark:text-gray-900 cursor-default border-2 border-blue-700 dark:border-blue-200" aria-current="page">Home</button>
+        <button onclick="location.href='topics.html'" class="px-4 py-2 rounded font-semibold focus:outline focus:ring-2 focus:ring-blue-500 transition bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800">Topics</button>
+        <button id="darkModeToggle" aria-label="Toggle dark mode" class="ml-4 p-2 rounded focus:outline focus:ring-2 focus:ring-blue-500 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="flex-1 flex flex-col items-center justify-center text-center px-4" tabindex="-1">
+    <div class="max-w-xl mt-16 mb-8 animate-fade-in-up">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-blue-800 dark:text-blue-200">Welcome to your complete AZ-900 Learning Path</h2>
+      <p class="mb-6 text-lg text-gray-700 dark:text-gray-200">Master Microsoft Azure Fundamentals with interactive notes, real exam questions, and a beautiful, modern interface. Start with the <a href="introduction.html" class="text-blue-600 dark:text-blue-300 underline">Introduction</a>, explore <a href="topics.html" class="text-blue-600 dark:text-blue-300 underline">Topics</a>, or check the <a href="faq.html" class="text-blue-600 dark:text-blue-300 underline">FAQ</a>.</p>
+      <a href="topics.html" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 text-lg font-semibold transition focus:outline focus:ring-2 focus:ring-blue-500" tabindex="0" aria-label="Start Studying with AZ-900 Topics">Start Studying</a>
+    </div>
+    <button id="backToTop" class="fixed bottom-8 right-8 z-50 px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition hidden">↑ Top</button>
+  </main>
+  <footer class="bg-white dark:bg-gray-900 text-center py-4 mt-8 shadow-inner" role="contentinfo">
+    <span>Made with <span aria-label="love" role="img">❤️</span> for AZ-900 learners. <a href="https://learn.microsoft.com/en-us/certifications/exams/az-900/" target="_blank" rel="noopener" class="text-blue-500 hover:underline focus:outline focus:ring-2 focus:ring-blue-500">MS Learn</a></span>
+    <div class="text-xs text-gray-500 mt-2">Last updated: June 17, 2025</div>
+  </footer>
+  <script>
+    // Dark mode toggle logic
+    const toggle = document.getElementById('darkModeToggle');
+    const root = document.documentElement;
+    function setDarkMode(on) {
+      if (on) {
+        root.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.textContent = '☀️';
+      } else {
+        root.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        toggle.textContent = '🌙';
+      }
+    }
+    // Set initial mode
+    const userPref = localStorage.getItem('theme');
+    const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setDarkMode(userPref === 'dark' || (!userPref && systemPref));
+    toggle.addEventListener('click', () => {
+      setDarkMode(!root.classList.contains('dark'));
+    });
+
+    // Animation for hero section
+    document.querySelector('.animate-fade-in-up').style.opacity = 0;
+    document.querySelector('.animate-fade-in-up').style.transform = 'translateY(40px)';
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const el = document.querySelector('.animate-fade-in-up');
+        el.style.transition = 'opacity 0.8s, transform 0.8s';
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+      }, 200);
+    });
+
+    // Back to Top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTop.classList.remove('hidden');
+      } else {
+        backToTop.classList.add('hidden');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

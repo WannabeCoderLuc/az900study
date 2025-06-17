@@ -1,0 +1,462 @@
+# AZ-900 Study Guide: Microsoft Azure Fundamentals (Extended Edition)
+
+NOTE: This extended guide includes deep-dive notes, critical exam tips, and a large set of unique and varied question types. Best suited for those who want a comprehensive understanding of the AZ-900 exam.
+
+\====================================
+SECTION 1: CLOUD CONCEPTS (15-20%)
+==================================
+
+\--- Key Concepts ---
+
+* Cloud computing is the delivery of computing services over the internet, allowing for faster innovation, flexible resources, and economies of scale.
+* Benefits include:
+
+  * **High Availability**: Redundancy and failover capability.
+  * **Scalability**: Increase resources without impacting performance.
+  * **Elasticity**: Auto-scale resources to match demand.
+  * **Agility**: Deploy and manage resources quickly.
+  * **Geo-distribution**: Deploy services closer to users.
+  * **Disaster Recovery**: Replication, backup, and regional redundancy.
+
+\--- CapEx vs OpEx ---
+
+* **CapEx**: Traditional model — upfront costs for hardware and infrastructure.
+* **OpEx**: Cloud model — pay-as-you-go. Easier to scale and forecast.
+
+\--- Cloud Models ---
+
+* **Public Cloud**: Shared resources in a vendor-managed environment.
+* **Private Cloud**: Owned by the organization; on-prem or hosted.
+* **Hybrid Cloud**: Mix of public and private with orchestration.
+
+\--- Service Models ---
+
+* **IaaS**: Gives flexibility and control (e.g., VMs, VNets).
+* **PaaS**: Developer-friendly; no server management (e.g., App Service).
+* **SaaS**: Complete product provided as a service (e.g., Microsoft 365).
+
+Additional Note: Cloud computing provides an on-demand self-service model. Resources are provisioned without human interaction.
+
+\====================================
+SECTION 2: CORE AZURE SERVICES (15-20%)
+=======================================
+
+\--- Core Architectural Components ---
+
+* **Regions**: A set of datacenters within a specific location.
+* **Availability Zones**: Physically separate datacenters within a region. Provide high availability.
+* **Resource Groups**: Logical grouping of Azure resources for management.
+
+\--- Compute Services ---
+
+* **VMs**: Full control of OS; various sizes; pay-as-you-go.
+* **App Services**: Host web applications; built-in load balancing.
+* **Azure Functions**: Serverless; runs event-driven code.
+* **Container Instances**: Lightweight containers without orchestration.
+* **AKS**: Kubernetes container orchestration.
+
+\--- Networking ---
+
+* **Virtual Network (VNet)**: Private, isolated network.
+* **Subnet**: Subdivision of VNet.
+* **Network Interface (NIC)**: Connects VM to VNet.
+* **NSG**: Allows/denies traffic at subnet/NIC level.
+* **Application Gateway**: L7 load balancing.
+* **VPN Gateway**: Connects on-prem to Azure via encrypted tunnels.
+* **ExpressRoute**: Dedicated private connection to Azure.
+
+\--- Storage ---
+
+* **Blob**: Object storage for unstructured data.
+* **File**: Managed file shares.
+* **Disk**: Used by VMs.
+* **Queue**: Message storage between components.
+* **Tables**: NoSQL key-value store.
+
+Note: Azure Storage redundancy options include LRS, ZRS, GRS, RA-GRS.
+
+\====================================
+SECTION 3: CORE SOLUTIONS & MANAGEMENT TOOLS (10-15%)
+=====================================================
+
+\--- Solutions ---
+
+* **IoT Hub**: Communication between IoT devices and the cloud.
+* **Azure Machine Learning**: End-to-end ML lifecycle management.
+* **Azure Synapse Analytics**: Integration of data warehousing and Big Data.
+* **Azure Databricks**: Apache Spark-based analytics platform.
+
+\--- Management Tools ---
+
+* **Azure Monitor**: Collects, analyzes, and acts on telemetry.
+* **Log Analytics**: Queries and analyzes logs.
+* **Azure Advisor**: Personalized best practices.
+* **Azure Service Health**: Notifies about service issues.
+* **Azure Resource Manager**: Deployment and management API.
+
+Tip: Use **tags** to organize and group resources logically across RGs.
+
+\====================================
+SECTION 4: GENERAL & NETWORK SECURITY (10-15%)
+==============================================
+
+\--- Security ---
+
+* **Azure Firewall**: Highly available and scalable stateful firewall.
+* **NSGs**: Inbound/outbound rules; fast and efficient.
+* **DDoS Protection**: Basic is free; Standard provides advanced capabilities.
+* **Microsoft Defender for Cloud**: Security posture management + threat protection.
+
+\--- Zero Trust Principles ---
+
+* Always verify
+* Least privilege
+* Assume breach
+
+\--- Defense-in-Depth Layers ---
+
+1. Physical
+2. Identity & access
+3. Perimeter
+4. Network
+5. Compute
+6. Application
+7. Data
+
+\====================================
+SECTION 5: IDENTITY, GOVERNANCE, PRIVACY & COMPLIANCE (20-25%)
+==============================================================
+
+\--- Identity ---
+
+* **Azure Active Directory**: Identity provider.
+* **MFA**: Two or more authentication methods.
+* **Conditional Access**: Based on sign-in risk, location, etc.
+
+\--- Governance ---
+
+* **Management Groups**: Group multiple subscriptions.
+* **RBAC**: Assign roles like Reader, Contributor, Owner.
+* **Azure Policy**: Enforce standards and assess compliance.
+* **Blueprints**: Define governance packages.
+* **Locks**: Prevent accidental deletions.
+
+\--- Compliance ---
+
+* **Trust Center**: View Microsoft compliance certifications.
+* **Compliance Manager**: Assessment and workflow tool.
+
+Note: Azure regions and data residency are essential for compliance.
+
+\====================================
+SECTION 6: PRICING, SLA, AND LIFECYCLE (10-15%)
+===============================================
+
+\--- Pricing ---
+
+* **Pay-as-you-go**: No upfront cost.
+* **Reserved Instances**: Commit to 1/3 years, save up to 72%.
+* **Spot Pricing**: Unused capacity; lower cost, but can be evicted.
+
+\--- Tools ---
+
+* **Pricing Calculator**: Estimates cost.
+* **TCO Calculator**: Estimates savings over on-prem.
+
+\--- SLA ---
+
+* 99.9% = \~43 minutes/month downtime
+* 99.95% = \~22 minutes/month
+* 99.99% = \~4.4 minutes/month
+
+\--- Lifecycle ---
+
+* Preview -> GA -> Deprecated
+* Features in **preview** may not be included in SLA.
+
+\====================================
+SECTION 7: PRACTICE QUESTIONS (STANDARD)
+========================================
+
+Q1: What is a benefit of elasticity in cloud computing?
+A: Automatically adjusts resources to match workload demand.
+
+Q2: How does PaaS differ from IaaS?
+A: PaaS manages infrastructure so developers can focus on apps.
+
+Q3: What service manages user identities and access to resources?
+A: Azure Active Directory
+
+Q4: What is the purpose of NSGs?
+A: Control inbound/outbound traffic at subnet or NIC level.
+
+Q5: Which Azure service allows real-time analytics of large-scale data?
+A: Azure Synapse Analytics
+
+\====================================
+SECTION 8: UNIQUE QUESTION TYPES
+================================
+
+\--- MULTIPLE CHOICE ---
+Q: Which of the following are characteristics of the public cloud?
+A: (Choose all that apply)
+
+* [x] Shared resources
+* [x] Scalable
+* [ ] On-prem only
+* [x] Pay-as-you-go
+
+\--- TRUE/FALSE ---
+Q: Azure Resource Manager templates support infrastructure-as-code.
+A: True
+
+\--- MATCHING ---
+Match the Azure service with its description:
+
+* Azure Functions --> Serverless compute
+* Azure App Service --> Web app hosting
+* Azure Blob Storage --> Object storage
+* Azure SQL DB --> Relational database
+
+\--- FILL IN THE BLANK ---
+Q: \_\_\_\_\_\_\_\_ is the Azure tool that helps you evaluate cost savings when moving to Azure.
+A: TCO Calculator
+
+\--- SCENARIO ---
+Q: A company needs to host a web application and doesn't want to manage OS patches. Which service should they use?
+A: Azure App Service
+
+\--- ADVANCED CONCEPT ---
+Q: What happens when two Azure services with different SLAs are used together?
+A: The composite SLA is calculated by multiplying the individual SLAs, resulting in a lower overall uptime guarantee.
+
+\====================================
+TIPS FOR SUCCESS
+================
+
+* Create a free Azure account to explore services hands-on.
+* Reinforce learning with Microsoft Learn modules.
+* Practice using Azure Portal, CLI, and PowerShell.
+* Review the official Microsoft AZ-900 skills outline.
+* Focus on understanding services, not memorizing names.
+* Revisit questions regularly and simulate timed quizzes.
+
+\--- END OF EXTENDED STUDY GUIDE ---
+
+# AZ-900 Study Guide: Microsoft Azure Fundamentals (Extended Edition)
+
+NOTE: This extended guide includes deep-dive notes, critical exam tips, and a large set of unique and varied question types. Best suited for those who want a comprehensive understanding of the AZ-900 exam.
+
+\====================================
+MISCELLANEOUS NOTES & QUICK TIPS
+================================
+
+\--- GENERAL CLOUD NOTES ---
+
+* Azure is Microsoft's cloud computing platform and is the second-largest provider globally.
+* Azure services are deployed across 60+ regions and 200+ datacenters worldwide.
+* Microsoft uses a **region pair** system for data replication and disaster recovery.
+
+\--- AVAILABILITY AND SCALABILITY ---
+
+* **Availability Set**: Ensures that VMs are spread across multiple hardware nodes to avoid downtime due to hardware failure.
+* **Availability Zone**: Physically separate zones within a region for higher fault tolerance.
+* **Load Balancer vs Application Gateway**:
+
+  * Load Balancer operates at Layer 4 (TCP/UDP).
+  * App Gateway operates at Layer 7 (HTTP/HTTPS) and supports features like cookie affinity and SSL termination.
+
+\--- VM SIZES ---
+
+* Azure VMs come in families:
+
+  * B-series: burstable
+  * D-series: general-purpose
+  * F-series: compute optimized
+  * E-series: memory optimized
+
+\--- STORAGE TIERS ---
+
+* **Hot tier**: Frequently accessed data
+* **Cool tier**: Infrequently accessed data, lower storage cost
+* **Archive tier**: Rarely accessed data, cheapest storage but retrieval takes hours
+
+\--- DATA REDUNDANCY OPTIONS ---
+
+* **LRS (Locally Redundant Storage)**: 3 copies within a single datacenter
+* **ZRS (Zone-Redundant Storage)**: Across availability zones
+* **GRS (Geo-Redundant Storage)**: Region-to-region
+* **RA-GRS (Read-Access GRS)**: Read access to secondary region
+
+\--- SUBSCRIPTIONS AND BILLING ---
+
+* **Enterprise Agreement (EA)**: Best for large organizations
+* **Cloud Solution Provider (CSP)**: Indirect partner resellers
+* **Pay-As-You-Go**: Flexible for individuals and small businesses
+
+\--- COST MANAGEMENT TIPS ---
+
+* Use **Azure Budgets** to track spending.
+* Set up **alerts** when reaching a spending threshold.
+* **Cost Analysis** helps visualize and analyze costs over time.
+* **Right-size** VMs and reserve capacity for discounts.
+
+\--- RESOURCE NAMING CONVENTIONS ---
+
+* Use consistent, clear naming for easier management and automation.
+* Example: `rg-prod-eus-webapp-01` (ResourceGroup, Prod, East US, WebApp, Instance 1)
+
+\--- TAGGING ---
+
+* Tags help categorize and organize resources.
+* Examples of common tags: `Environment`, `Department`, `Owner`, `Project`, `CostCenter`
+
+\--- MIGRATION ---
+
+* Azure Migrate helps assess and move workloads from on-prem to Azure.
+* Assesses readiness, sizing, and dependencies.
+
+\--- TRUSTED LAUNCH ---
+
+* A security feature for Azure VMs that provides secure boot, vTPM, and UEFI boot verification.
+
+\--- SERVICE PRINCIPAL ---
+
+* Used by applications or automation tools to access Azure resources securely with defined permissions.
+
+\--- POLICY VS RBAC ---
+
+* **RBAC**: Defines **who** can perform **what** action on **which** resource.
+* **Policy**: Defines **what** resources should look like (compliance).
+
+\--- AZURE LIGHTHOUSE ---
+
+* Enables service providers to manage customer environments at scale securely.
+
+\--- SUPPORTED OPERATING SYSTEMS ON VMs ---
+
+* Windows Server, Ubuntu, Red Hat, SUSE, Debian, CentOS
+
+\--- REGULATORY COMPLIANCE ---
+
+* Azure meets over 90 compliance offerings including FedRAMP, ISO 27001, SOC 1/2/3, HIPAA, GDPR.
+
+\--- PORTAL SHORTCUTS ---
+
+* `portal.azure.com` — Main management portal
+* `shell.azure.com` — Launches Cloud Shell
+* `azure.microsoft.com/pricing` — Pricing tools and calculators
+
+\--- SLA CALCULATIONS ---
+
+* Composite SLA: Multiply individual SLAs
+* Example: Service A = 99.9%, Service B = 99.9% → Combined = 99.8%
+
+\--- POPULAR FREE TIER SERVICES ---
+
+* Azure Functions (1M executions/month)
+* Blob Storage (5GB)
+* Azure App Service (10 web apps)
+* Cosmos DB (400 RU/s)
+* Azure SQL DB (250GB/month)
+
+\--- AI SERVICES ---
+
+* Azure Cognitive Services:
+
+  * Vision (OCR, facial recognition)
+  * Language (translation, text analytics)
+  * Speech (speech-to-text, text-to-speech)
+  * Decision (personalizer, content moderator)
+
+\--- SERVERLESS COMPUTING ---
+
+* Focus on code execution without managing infrastructure
+* Ideal for event-based workloads
+
+\--- INFRASTRUCTURE-AS-CODE (IaC) ---
+
+* Use ARM templates, Bicep, Terraform, or Azure CLI scripts
+* Encourages versioning and repeatable deployments
+
+\--- EXAM STRATEGY TIPS ---
+
+* Focus on **why** a service is used, not just **what** it does
+* Understand core services (VMs, Blob, VNet, NSG, SQL DB)
+* Know your pricing tools and governance structures
+* Pay attention to SLA scenarios and service lifecycle
+* Practice using the Azure Portal, CLI, and Azure Docs
+* Watch Microsoft's exam prep video on YouTube
+
+\--- END OF MISC NOTES ---
+
+
+==============================
+MORE STUDY NOTES & QUESTIONS
+==============================
+
+--- IDENTITY & SECURITY ---
+- Azure Active Directory (AAD): Identity management solution for cloud resources.
+- MFA (Multi-Factor Authentication): Adds a second layer of security beyond username/password.
+- Conditional Access: Controls access based on location, device, or risk.
+- Role-Based Access Control (RBAC): Assign permissions at resource, group, or subscription level.
+- Azure Defender: Adds advanced threat protection to services like VMs, Storage, SQL.
+
+--- NETWORKING CONCEPTS ---
+- VNet: Logical isolation of the Azure cloud dedicated to a subscription.
+- NSG (Network Security Group): Controls inbound and outbound traffic.
+- VPN Gateway: Connects on-premises networks to Azure through Site-to-Site VPNs.
+- ExpressRoute: Private, dedicated connection to Azure with higher reliability and speed.
+
+--- CONTAINERS ---
+- Azure Kubernetes Service (AKS): Manages containerized apps with Kubernetes.
+- Azure Container Instances (ACI): Fastest way to run containers without managing servers.
+
+=========================
+UNIQUE QUESTION FORMATS
+=========================
+
+-- DRAG AND DROP MATCHING --
+Match the Azure service with its function:
+
+[1] Azure DNS         - (C) Host domain records in Azure
+[2] Azure Bastion     - (B) Secure RDP/SSH via browser
+[3] Azure Monitor     - (D) Tracks performance metrics
+[4] Azure Policy      - (A) Enforces organizational standards
+
+-- SCENARIO-BASED --
+Q: Your company needs to run a highly available web application with automatic scaling and no server management. Which Azure service should you use?
+A: Azure App Service
+
+Q: You need to restrict access to a storage account so that only selected IPs can reach it. What should you use?
+A: Storage account firewall and virtual networks
+
+-- TRUE OR FALSE --
+1. Azure Resource Manager templates allow you to automate deployment. → TRUE
+2. Azure supports both Windows and Linux virtual machines. → TRUE
+3. Azure Cost Management is only available to Enterprise customers. → FALSE
+
+-- FILL IN THE BLANK --
+1. Azure ________ is used to define and assign policies to enforce rules across resources. → Policy
+2. Azure ________ provides a way to store secrets, passwords, and certificates. → Key Vault
+
+-- MULTIPLE ANSWERS --
+Q: Which of the following are examples of PaaS offerings? (Select two)
+
+A. Azure App Service ✅
+
+B. Azure SQL Database ✅
+
+C. Azure VM ❌
+
+D. Azure Blob Storage ❌
+
+===========================
+USEFUL LINKS TO REMEMBER
+===========================
+- Azure Docs: https://docs.microsoft.com/azure/
+- Azure Pricing Calculator: https://azure.microsoft.com/en-us/pricing/calculator/
+- Microsoft Learn: https://learn.microsoft.com/en-us/training/
+- AZ-900 Exam Page: https://learn.microsoft.com/en-us/certifications/exams/az-900/
+- Microsoft Practice Assessments: https://aka.ms/practicetests
+

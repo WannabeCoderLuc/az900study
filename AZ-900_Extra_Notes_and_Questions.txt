@@ -1,0 +1,69 @@
+
+==============================
+MORE STUDY NOTES & QUESTIONS
+==============================
+
+--- IDENTITY & SECURITY ---
+- Azure Active Directory (AAD): Identity management solution for cloud resources.
+- MFA (Multi-Factor Authentication): Adds a second layer of security beyond username/password.
+- Conditional Access: Controls access based on location, device, or risk.
+- Role-Based Access Control (RBAC): Assign permissions at resource, group, or subscription level.
+- Azure Defender: Adds advanced threat protection to services like VMs, Storage, SQL.
+
+--- NETWORKING CONCEPTS ---
+- VNet: Logical isolation of the Azure cloud dedicated to a subscription.
+- NSG (Network Security Group): Controls inbound and outbound traffic.
+- VPN Gateway: Connects on-premises networks to Azure through Site-to-Site VPNs.
+- ExpressRoute: Private, dedicated connection to Azure with higher reliability and speed.
+
+--- CONTAINERS ---
+- Azure Kubernetes Service (AKS): Manages containerized apps with Kubernetes.
+- Azure Container Instances (ACI): Fastest way to run containers without managing servers.
+
+=========================
+UNIQUE QUESTION FORMATS
+=========================
+
+-- DRAG AND DROP MATCHING --
+Match the Azure service with its function:
+
+[1] Azure DNS         - (C) Host domain records in Azure
+[2] Azure Bastion     - (B) Secure RDP/SSH via browser
+[3] Azure Monitor     - (D) Tracks performance metrics
+[4] Azure Policy      - (A) Enforces organizational standards
+
+-- SCENARIO-BASED --
+Q: Your company needs to run a highly available web application with automatic scaling and no server management. Which Azure service should you use?
+A: Azure App Service
+
+Q: You need to restrict access to a storage account so that only selected IPs can reach it. What should you use?
+A: Storage account firewall and virtual networks
+
+-- TRUE OR FALSE --
+1. Azure Resource Manager templates allow you to automate deployment. → TRUE
+2. Azure supports both Windows and Linux virtual machines. → TRUE
+3. Azure Cost Management is only available to Enterprise customers. → FALSE
+
+-- FILL IN THE BLANK --
+1. Azure ________ is used to define and assign policies to enforce rules across resources. → Policy
+2. Azure ________ provides a way to store secrets, passwords, and certificates. → Key Vault
+
+-- MULTIPLE ANSWERS --
+Q: Which of the following are examples of PaaS offerings? (Select two)
+
+A. Azure App Service ✅
+
+B. Azure SQL Database ✅
+
+C. Azure VM ❌
+
+D. Azure Blob Storage ❌
+
+===========================
+USEFUL LINKS TO REMEMBER
+===========================
+- Azure Docs: https://docs.microsoft.com/azure/
+- Azure Pricing Calculator: https://azure.microsoft.com/en-us/pricing/calculator/
+- Microsoft Learn: https://learn.microsoft.com/en-us/training/
+- AZ-900 Exam Page: https://learn.microsoft.com/en-us/certifications/exams/az-900/
+- Microsoft Practice Assessments: https://aka.ms/practicetests

@@ -1,0 +1,328 @@
+{
+  "topics": [
+    {
+      "id": "cloud-concepts",
+      "title": "Cloud Concepts",
+      "ms_learn": [
+        { "type": "info", "content": "Cloud computing is the delivery of computing services over the internet, allowing for faster innovation, flexible resources, and economies of scale." },
+        { "type": "list", "content": [
+          "High Availability: Ensures your applications and data are accessible even during failures by using redundancy and failover mechanisms across datacenters.",
+          "Scalability: Allows you to increase or decrease resources and services to meet changing demand, without impacting performance.",
+          "Elasticity: Automatically adds or removes resources as needed to handle workload changes, so you only pay for what you use.",
+          "Agility: Enables rapid deployment and management of resources, allowing organizations to quickly respond to business needs.",
+          "Geo-distribution: Lets you deploy services in multiple geographic locations, bringing applications closer to users for better performance and compliance.",
+          "Disaster Recovery: Provides backup, replication, and regional redundancy to ensure business continuity in case of failures."
+        ]},
+        { "type": "info", "content": "CapEx (upfront costs) vs OpEx (pay-as-you-go)." },
+        { "type": "list", "content": [
+          "CapEx: Capital Expenditure is the traditional IT model where you invest upfront in hardware and infrastructure, with costs depreciated over time.",
+          "OpEx: Operational Expenditure is the cloud model where you pay for services as you use them, making it easier to scale and forecast costs."
+        ]},
+        { "type": "list", "content": [
+          "Public Cloud: Cloud resources are owned and operated by a third-party provider and shared among multiple organizations, offering scalability and cost efficiency.",
+          "Private Cloud: Cloud resources are used exclusively by one organization, either on-premises or hosted by a provider, offering greater control and security.",
+          "Hybrid Cloud: Combines public and private clouds, allowing data and applications to move between them for greater flexibility and optimization."
+        ]},
+        { "type": "list", "content": [
+          "IaaS: Infrastructure as a Service provides virtualized computing resources over the internet, giving you control over operating systems, storage, and deployed applications (e.g., VMs, VNets).",
+          "PaaS: Platform as a Service offers a managed environment for developing, testing, and deploying applications without managing the underlying infrastructure (e.g., App Service).",
+          "SaaS: Software as a Service delivers fully managed applications over the internet, accessible via web browsers, with no need to manage infrastructure or platforms (e.g., Microsoft 365)."
+        ]},
+        { "type": "info", "content": "Cloud computing provides on-demand self-service. Resources are provisioned without human interaction." }
+      ],
+      "exam_questions": [
+        { "type": "standard", "question": "What is a benefit of elasticity in cloud computing?", "answer": "Automatically adjusts resources to match workload demand." },
+        { "type": "standard", "question": "How does PaaS differ from IaaS?", "answer": "PaaS manages infrastructure so developers can focus on apps." },
+        { "type": "mcq-multi", "question": "Which of the following are characteristics of the public cloud? (Choose all that apply)", "choices": ["Shared resources", "Scalable", "On-prem only", "Pay-as-you-go"], "answers": [0,1,3], "explanation": "Public cloud is shared, scalable, and pay-as-you-go." },
+        { "type": "truefalse", "question": "Azure Resource Manager templates support infrastructure-as-code.", "answer": true },
+        { "type": "fill", "question": "_______ is the Azure tool that helps you evaluate cost savings when moving to Azure.", "answer": "TCO Calculator" },
+        { "type": "scenario", "question": "A company needs to host a web application and doesn't want to manage OS patches. Which service should they use?", "answer": "Azure App Service" },
+        { "type": "advanced", "question": "What happens when two Azure services with different SLAs are used together?", "answer": "The composite SLA is calculated by multiplying the individual SLAs, resulting in a lower overall uptime guarantee." }
+      ]
+    },
+    {
+      "id": "core-azure-services",
+      "title": "Core Azure Services",
+      "ms_learn": [
+        { "type": "info", "content": "Regions: A set of datacenters within a specific location. Availability Zones: Physically separate datacenters within a region. Resource Groups: Logical grouping of Azure resources for management." },
+        { "type": "list", "content": [
+          "VMs: Virtual Machines provide on-demand, scalable computing resources with full control over the operating system and installed software. Available in various sizes and billed per usage.",
+          "App Services: A fully managed platform for building, deploying, and scaling web apps, with built-in load balancing and automatic patching.",
+          "Azure Functions: A serverless compute service that lets you run event-driven code without managing infrastructure, ideal for automation and microservices.",
+          "Container Instances: Offers the fastest and simplest way to run containers in Azure without managing virtual machines or orchestrators.",
+          "AKS: Azure Kubernetes Service provides managed Kubernetes container orchestration, simplifying deployment, management, and scaling of containerized applications."
+        ]},
+        { "type": "list", "content": [
+          "Virtual Network (VNet): Provides secure, private, and isolated network environments for Azure resources, supporting subnets, routing, and connectivity to on-premises networks.",
+          "Subnet: A segment of a VNet that allows you to organize and secure resources within the network.",
+          "Network Interface (NIC): Connects a virtual machine to a VNet, enabling network communication.",
+          "NSG: Network Security Groups allow or deny inbound and outbound traffic to resources at the subnet or NIC level, providing granular security control.",
+          "Application Gateway: A web traffic load balancer that operates at Layer 7 (HTTP/HTTPS), offering SSL termination, cookie-based session affinity, and web application firewall.",
+          "VPN Gateway: Establishes secure, encrypted connections between on-premises networks and Azure VNets over the internet.",
+          "ExpressRoute: Provides a dedicated, private connection between your on-premises infrastructure and Azure, offering higher reliability, speed, and security than typical internet connections."
+        ]},
+        { "type": "list", "content": [
+          "Blob: Azure Blob Storage is an object storage solution for unstructured data such as documents, images, and backups, supporting massive scalability and durability.",
+          "File: Azure Files provides fully managed file shares in the cloud, accessible via SMB protocol from Windows, Linux, and macOS.",
+          "Disk: Managed Disks are block-level storage volumes used by Azure VMs for OS and data storage, offering high availability and security.",
+          "Queue: Azure Queue Storage enables reliable messaging between application components, supporting decoupled and scalable architectures.",
+          "Tables: Azure Table Storage is a NoSQL key-value store for rapid development and massive scale, ideal for storing structured, non-relational data."
+        ]},
+        { "type": "info", "content": "Azure Storage redundancy options: LRS (Locally Redundant Storage), ZRS (Zone-Redundant Storage), GRS (Geo-Redundant Storage), RA-GRS (Read-Access Geo-Redundant Storage). Each option provides increasing levels of data durability and availability." }
+      ],
+      "exam_questions": [
+        { "type": "standard", "question": "What service manages user identities and access to resources?", "answer": "Azure Active Directory" },
+        { "type": "standard", "question": "What is the purpose of NSGs?", "answer": "Control inbound/outbound traffic at subnet or NIC level." },
+        { "type": "standard", "question": "Which Azure service allows real-time analytics of large-scale data?", "answer": "Azure Synapse Analytics" },
+        { "type": "matching", "question": "Match the Azure service with its description:", "pairs": [
+          { "left": "Azure Functions", "right": "Serverless compute" },
+          { "left": "Azure App Service", "right": "Web app hosting" },
+          { "left": "Azure Blob Storage", "right": "Object storage" },
+          { "left": "Azure SQL DB", "right": "Relational database" }
+        ]}
+      ]
+    },
+    {
+      "id": "solutions-management",
+      "title": "Core Solutions & Management Tools",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "IoT Hub: A managed service for secure, bi-directional communication between millions of IoT devices and the Azure cloud, supporting device management and telemetry ingestion.",
+          "Azure Machine Learning: An end-to-end platform for building, training, and deploying machine learning models at scale, with integrated tools for data preparation and monitoring.",
+          "Azure Synapse Analytics: Combines big data and data warehousing, enabling analytics across large datasets with on-demand or provisioned resources.",
+          "Azure Databricks: An Apache Spark-based analytics platform optimized for Azure, providing collaborative workspaces for data engineering, data science, and machine learning."
+        ]},
+        { "type": "list", "content": [
+          "Azure Monitor: Collects, analyzes, and acts on telemetry data from your cloud and on-premises environments, providing full-stack monitoring and alerting.",
+          "Log Analytics: A tool within Azure Monitor that allows you to query and analyze log and performance data from various sources for troubleshooting and insights.",
+          "Azure Advisor: Provides personalized, actionable recommendations to optimize your Azure resources for reliability, security, performance, and cost.",
+          "Azure Service Health: Notifies you about Azure service incidents and planned maintenance that may affect your resources, helping you mitigate downtime.",
+          "Azure Resource Manager: The deployment and management service for Azure, enabling infrastructure-as-code, resource grouping, and access control."
+        ]},
+        { "type": "info", "content": "Use tags to organize and group resources logically across resource groups, subscriptions, and management groups for easier management and cost tracking." }
+      ],
+      "exam_questions": [
+        { "type": "standard", "question": "What is Azure Advisor used for?", "answer": "Personalized best practices and recommendations." },
+        { "type": "standard", "question": "Which tool notifies you about Azure service issues?", "answer": "Azure Service Health" }
+      ]
+    },
+    {
+      "id": "security-governance",
+      "title": "General & Network Security, Identity, Governance, Privacy & Compliance",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "Azure Firewall: A managed, cloud-based network security service that protects Azure Virtual Network resources with high availability and scalability, supporting both application and network-level filtering.",
+          "NSGs: Network Security Groups provide fast and efficient filtering of network traffic to and from Azure resources, using customizable inbound and outbound security rules at the subnet and NIC level.",
+          "DDoS Protection: Azure DDoS Protection defends against distributed denial-of-service attacks. Basic protection is included for free, while Standard offers advanced mitigation and alerting capabilities.",
+          "Microsoft Defender for Cloud: A unified security management system that strengthens your security posture and provides advanced threat protection across hybrid cloud workloads."
+        ]},
+        { "type": "list", "content": [
+          "Zero Trust Principles: A security model that assumes breach and verifies each request as though it originates from an open network. Key principles include always verify, use least privilege, and assume breach.",
+          "Defense-in-Depth Layers: A multi-layered approach to security, including physical security, identity and access management, perimeter protection, network controls, compute security, application security, and data protection."
+        ]},
+        { "type": "list", "content": [
+          "Azure Active Directory: Microsoft's cloud-based identity and access management service, providing single sign-on, multi-factor authentication, and conditional access to protect users and resources.",
+          "MFA: Multi-Factor Authentication requires two or more verification methods, such as a password and a mobile app notification, to enhance account security.",
+          "Conditional Access: Policies that automatically grant or block access to resources based on user, location, device state, and risk level, improving security and compliance."
+        ]},
+        { "type": "list", "content": [
+          "Management Groups: Allow you to organize multiple Azure subscriptions into a hierarchy for unified policy and access management.",
+          "RBAC: Role-Based Access Control lets you assign specific permissions to users, groups, and applications at different scopes (resource, resource group, subscription).",
+          "Azure Policy: Enables you to create, assign, and manage policies to enforce rules and ensure resources comply with corporate standards.",
+          "Blueprints: Packages of governance controls, including policies, role assignments, and resource templates, to simplify environment setup and compliance.",
+          "Locks: Prevent accidental deletion or modification of critical resources by applying read-only or delete locks."
+        ]},
+        { "type": "list", "content": [
+          "Trust Center: A Microsoft portal providing information about compliance certifications, data protection, and privacy practices.",
+          "Compliance Manager: A workflow-based tool for tracking, managing, and reporting on regulatory compliance within Azure.",
+          "Azure regions and data residency: Ensures that your data is stored and processed in specific geographic locations to meet legal and regulatory requirements."
+        ]}
+      ],
+      "exam_questions": [
+        { "type": "standard", "question": "What does RBAC stand for?", "answer": "Role-Based Access Control" },
+        { "type": "standard", "question": "Which service is used to securely store secrets in Azure?", "answer": "Key Vault" },
+        { "type": "standard", "question": "What is the purpose of Azure MFA?", "answer": "Multi-Factor Authentication" }
+      ]
+    },
+    {
+      "id": "pricing-sla-lifecycle",
+      "title": "Pricing, SLA, and Lifecycle",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "Pay-as-you-go: A flexible pricing model where you pay only for the resources you use, with no upfront costs or long-term commitments, making it ideal for variable workloads.",
+          "Reserved Instances: Save up to 72% by committing to a one- or three-year term for virtual machines, providing cost predictability for steady-state workloads.",
+          "Spot Pricing: Purchase unused Azure compute capacity at significant discounts, but resources can be evicted when Azure needs the capacity, making it suitable for interruptible workloads."
+        ]},
+        { "type": "list", "content": [
+          "Pricing Calculator: An online tool that helps you estimate the cost of Azure services based on your specific configuration and usage patterns.",
+          "TCO Calculator: The Total Cost of Ownership Calculator estimates potential cost savings when migrating workloads from on-premises to Azure, factoring in hardware, software, and operational costs."
+        ]},
+        { "type": "list", "content": [
+          "SLA: Service Level Agreements define the guaranteed uptime and connectivity for Azure services. For example, 99.9% uptime allows for about 43 minutes of downtime per month, 99.95% for about 22 minutes, and 99.99% for about 4.4 minutes."
+        ]},
+        { "type": "list", "content": [
+          "Lifecycle: Azure services progress through stages: Preview (early access, not covered by SLA), General Availability (GA, fully supported), and Deprecated (phased out). Features in preview may not be included in the SLA."
+        ]}
+      ],
+      "exam_questions": [
+        { "type": "standard", "question": "What does SLA stand for?", "answer": "Service Level Agreement" },
+        { "type": "standard", "question": "Which tool helps estimate Azure costs?", "answer": "Pricing Calculator" },
+        { "type": "standard", "question": "What is the first stage of the Azure service lifecycle?", "answer": "Preview" }
+      ]
+    },
+    {
+      "id": "tips-misc",
+      "title": "Tips, Miscellaneous Notes & Quick Facts",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "Create a free Azure account to explore services hands-on: Microsoft offers a free tier with credits and always-free services so you can practice and learn in a real environment.",
+          "Reinforce learning with Microsoft Learn modules: These interactive, self-paced modules cover all AZ-900 topics and provide hands-on labs.",
+          "Practice using Azure Portal, CLI, and PowerShell: Familiarity with these tools is essential for the exam and real-world scenarios.",
+          "Review the official Microsoft AZ-900 skills outline: Ensures you are studying the most current and relevant topics for the exam.",
+          "Focus on understanding services, not memorizing names: The exam tests your ability to choose and apply services, not just recall their names.",
+          "Revisit questions regularly and simulate timed quizzes: Practice under exam conditions to improve recall and time management."
+        ]},
+        { "type": "list", "content": [
+          "Azure is Microsoft's cloud computing platform and is the second-largest provider globally, offering a wide range of services for compute, storage, networking, and AI.",
+          "Azure services are deployed across 60+ regions and 200+ datacenters worldwide, providing global reach and redundancy.",
+          "Microsoft uses a region pair system for data replication and disaster recovery, ensuring high availability and compliance with data residency requirements."
+        ]},
+        { "type": "list", "content": [
+          "Availability Set: Ensures that VMs are distributed across multiple physical servers, compute racks, storage units, and network switches to minimize downtime from hardware failures.",
+          "Availability Zone: Physically separate locations within an Azure region, each with independent power, cooling, and networking, providing higher fault tolerance for applications.",
+          "Load Balancer (L4) vs Application Gateway (L7): Load Balancer operates at the transport layer (TCP/UDP) for distributing network traffic, while Application Gateway operates at the application layer (HTTP/HTTPS) and supports advanced features like SSL termination and web application firewall."
+        ]},
+        { "type": "list", "content": [
+          "VM families: Azure offers different VM series for specific workloads: B-series (burstable), D-series (general purpose), F-series (compute optimized), E-series (memory optimized)."
+        ]},
+        { "type": "list", "content": [
+          "Storage tiers: Hot (frequently accessed data), Cool (infrequently accessed, lower cost), Archive (rarely accessed, lowest cost, longer retrieval times)."
+        ]},
+        { "type": "list", "content": [
+          "Data redundancy: LRS (Locally Redundant Storage), ZRS (Zone-Redundant Storage), GRS (Geo-Redundant Storage), RA-GRS (Read-Access Geo-Redundant Storage) provide increasing levels of durability and availability for your data."
+        ]},
+        { "type": "list", "content": [
+          "Enterprise Agreement (EA): Volume licensing for large organizations; CSP: Cloud Solution Provider program for resellers; Pay-As-You-Go: Flexible, no-commitment billing for individuals and small businesses."
+        ]},
+        { "type": "list", "content": [
+          "Azure Budgets: Set spending limits and get alerts; Cost Analysis: Visualize and analyze spending; Right-size VMs: Adjust VM sizes to match workload; Reserve capacity: Commit to longer terms for discounts."
+        ]},
+        { "type": "list", "content": [
+          "Resource naming conventions and tagging best practices: Use clear, consistent names and tags to organize, manage, and automate resources efficiently."
+        ]},
+        { "type": "list", "content": [
+          "Azure Migrate: A suite of tools to assess and migrate on-premises workloads to Azure, including readiness checks and dependency analysis."
+        ]},
+        { "type": "list", "content": [
+          "Trusted Launch: A security feature for Azure VMs that provides secure boot, virtual TPM, and UEFI boot verification to protect against rootkits and bootkits."
+        ]},
+        { "type": "list", "content": [
+          "Service Principal: An identity used by applications or automation tools to access Azure resources securely with defined permissions, supporting automation and DevOps scenarios."
+        ]},
+        { "type": "list", "content": [
+          "RBAC (who/what/which) vs Policy (compliance): RBAC controls who can do what on which resources, while Policy enforces compliance with organizational standards and resource configurations."
+        ]},
+        { "type": "list", "content": [
+          "Azure Lighthouse: Enables service providers to manage customer environments at scale, with delegated resource management and enhanced security."
+        ]},
+        { "type": "list", "content": [
+          "Supported OS: Azure supports a wide range of operating systems for VMs, including Windows Server, Ubuntu, Red Hat, SUSE, Debian, and CentOS."
+        ]},
+        { "type": "list", "content": [
+          "Azure meets 90+ compliance offerings (FedRAMP, ISO, SOC, HIPAA, GDPR): Azure is certified for a broad set of global, regional, and industry-specific compliance standards."
+        ]},
+        { "type": "list", "content": [
+          "Portal shortcuts: portal.azure.com (main portal), shell.azure.com (Cloud Shell), azure.microsoft.com/pricing (pricing tools and calculators)."
+        ]},
+        { "type": "list", "content": [
+          "Composite SLA: The combined SLA for multiple services is calculated by multiplying their individual SLAs, resulting in a lower overall uptime guarantee."
+        ]},
+        { "type": "list", "content": [
+          "Popular free tier services: Azure Functions (1M executions/month), Blob Storage (5GB), App Service (10 web apps), Cosmos DB (400 RU/s), Azure SQL DB (250GB/month)."
+        ]},
+        { "type": "list", "content": [
+          "AI Services: Azure Cognitive Services include Vision (OCR, facial recognition), Language (translation, text analytics), Speech (speech-to-text, text-to-speech), and Decision (personalizer, content moderator)."
+        ]},
+        { "type": "list", "content": [
+          "Serverless computing: Lets you focus on writing code without managing infrastructure, ideal for event-driven and microservices architectures."
+        ]},
+        { "type": "list", "content": [
+          "Infrastructure-as-Code: Use ARM templates, Bicep, Terraform, or CLI scripts to automate and version infrastructure deployments, ensuring consistency and repeatability."
+        ]},
+        { "type": "list", "content": [
+          "Exam strategy: Focus on why a service is used, not just what it does. Know pricing tools, governance, SLAs, and core services for the exam."
+        ]}
+      ],
+      "exam_questions": []
+    },
+    {
+      "id": "networking-containers",
+      "title": "Networking & Containers",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "VNet: Logical isolation of the Azure cloud dedicated to a subscription.",
+          "NSG (Network Security Group): Controls inbound and outbound traffic.",
+          "VPN Gateway: Connects on-premises networks to Azure through Site-to-Site VPNs.",
+          "ExpressRoute: Private, dedicated connection to Azure with higher reliability and speed."
+        ]},
+        { "type": "list", "content": [
+          "Azure Kubernetes Service (AKS): Manages containerized apps with Kubernetes.",
+          "Azure Container Instances (ACI): Fastest way to run containers without managing servers."
+        ]}
+      ],
+      "exam_questions": [
+        { "type": "matching", "question": "Match the Azure service with its function:", "pairs": [
+          { "left": "Azure DNS", "right": "Host domain records in Azure" },
+          { "left": "Azure Bastion", "right": "Secure RDP/SSH via browser" },
+          { "left": "Azure Monitor", "right": "Tracks performance metrics" },
+          { "left": "Azure Policy", "right": "Enforces organizational standards" }
+        ]},
+        { "type": "scenario", "question": "You need to restrict access to a storage account so that only selected IPs can reach it. What should you use?", "answer": "Storage account firewall and virtual networks" }
+      ]
+    },
+    {
+      "id": "identity-security",
+      "title": "Identity & Security",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "Azure Active Directory (AAD): Identity management solution for cloud resources.",
+          "MFA (Multi-Factor Authentication): Adds a second layer of security beyond username/password.",
+          "Conditional Access: Controls access based on location, device, or risk.",
+          "Role-Based Access Control (RBAC): Assign permissions at resource, group, or subscription level.",
+          "Azure Defender: Adds advanced threat protection to services like VMs, Storage, SQL."
+        ]}
+      ],
+      "exam_questions": [
+        { "type": "fill", "question": "Azure ________ is used to define and assign policies to enforce rules across resources.", "answer": "Policy" },
+        { "type": "fill", "question": "Azure ________ provides a way to store secrets, passwords, and certificates.", "answer": "Key Vault" },
+        { "type": "truefalse", "question": "Azure Cost Management is only available to Enterprise customers.", "answer": false }
+      ]
+    },
+    {
+      "id": "unique-questions",
+      "title": "Unique Question Formats",
+      "ms_learn": [
+        { "type": "info", "content": "Practice with all question types: drag-and-drop, scenario-based, multi-answer, true/false, fill-in-the-blank, and matching." }
+      ],
+      "exam_questions": [
+        { "type": "mcq-multi", "question": "Which of the following are examples of PaaS offerings? (Select two)", "choices": ["Azure App Service", "Azure SQL Database", "Azure VM", "Azure Blob Storage"], "answers": [0,1], "explanation": "App Service and SQL Database are PaaS; VM and Blob Storage are not." },
+        { "type": "truefalse", "question": "Azure supports both Windows and Linux virtual machines.", "answer": true },
+        { "type": "truefalse", "question": "Azure Resource Manager templates allow you to automate deployment.", "answer": true }
+      ]
+    },
+    {
+      "id": "useful-links",
+      "title": "Useful Links",
+      "ms_learn": [
+        { "type": "list", "content": [
+          "Azure Docs: https://docs.microsoft.com/azure/",
+          "Azure Pricing Calculator: https://azure.microsoft.com/en-us/pricing/calculator/",
+          "Microsoft Learn: https://learn.microsoft.com/en-us/training/",
+          "AZ-900 Exam Page: https://learn.microsoft.com/en-us/certifications/exams/az-900/",
+          "Microsoft Practice Assessments: https://aka.ms/practicetests"
+        ]}
+      ],
+      "exam_questions": []
+    }
+  ]
+}

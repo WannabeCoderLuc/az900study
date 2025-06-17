@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZ-900 Topics</title>
+  <meta property="og:title" content="AZ-900 Study Guide">
+  <meta property="og:description" content="Master Microsoft Azure Fundamentals with interactive notes, real exam questions, and a beautiful, modern interface.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wannabecoderluc.github.io/az900study/">
+  <meta property="og:image" content="/favicon.ico">
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AZ-900 Study Guide">
+  <meta name="twitter:description" content="Master Microsoft Azure Fundamentals with interactive notes, real exam questions, and a beautiful, modern interface.">
+  <meta name="twitter:image" content="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-200 dark:from-gray-900 dark:to-gray-800 min-h-screen flex flex-col">
+  <header class="bg-white dark:bg-gray-900 shadow py-4">
+    <div class="max-w-3xl mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-extrabold text-blue-700 dark:text-blue-300 tracking-tight">AZ-900 Study Guide</h1>
+      <nav class="space-x-4 flex items-center" aria-label="Main navigation">
+        <button onclick="location.href='index.html'" class="px-4 py-2 rounded font-semibold focus:outline focus:ring-2 focus:ring-blue-500 transition bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800">Home</button>
+        <button disabled class="px-4 py-2 rounded font-semibold focus:outline focus:ring-2 focus:ring-blue-500 transition bg-blue-600 text-white dark:bg-blue-400 dark:text-gray-900 cursor-default border-2 border-blue-700 dark:border-blue-200" aria-current="page">Topics</button>
+        <button id="darkModeToggle" aria-label="Toggle dark mode" class="ml-4 p-2 rounded focus:outline focus:ring-2 focus:ring-blue-500 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition">🌙</button>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-1 flex flex-col items-center px-4">
+    <div class="w-full flex justify-start mb-4">
+      <a href="index.html" class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 rounded shadow hover:bg-blue-200 dark:hover:bg-blue-800 transition">← Back to Home</a>
+    </div>
+    <div class="max-w-3xl w-full mt-4 mb-8 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+      <div class="flex items-center mb-4">
+        <input id="topicSearch" type="text" placeholder="Search topics..." class="w-full px-4 py-2 border border-blue-300 dark:border-blue-700 rounded focus:outline focus:ring-2 focus:ring-blue-500" />
+        <button id="clearSearch" class="ml-2 px-3 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition">Clear</button>
+        <button id="randomTopic" class="ml-2 px-3 py-2 bg-purple-200 dark:bg-purple-800 text-purple-800 dark:text-purple-100 rounded hover:bg-purple-300 dark:hover:bg-purple-700 transition">Random Topic</button>
+      </div>
+      <div id="topicCount" class="mb-2 text-sm text-gray-600 dark:text-gray-300"></div>
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-blue-800 dark:text-blue-200">AZ-900 Study Topics (2025)</h2>
+      <div id="topics-content" class="space-y-6"></div>
+    </div>
+    <button id="backToTop" class="fixed bottom-8 right-8 z-50 px-4 py-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition hidden">↑ Top</button>
+  </main>
+  <footer class="bg-white dark:bg-gray-900 text-center py-4 mt-8 shadow-inner">
+    <span>Made with <span aria-label="love" role="img">❤️</span> for AZ-900 learners. <a href="https://learn.microsoft.com/en-us/certifications/exams/az-900/" target="_blank" rel="noopener" class="text-blue-500 hover:underline focus:outline focus:ring-2 focus:ring-blue-500">MS Learn</a></span>
+    <div class="text-xs text-gray-500 mt-2">Last updated: June 17, 2025</div>
+  </footer>
+  <script>
+    // Add a fun random fact banner at the top of topics.html
+    function showRandomFact(facts) {
+      const banner = document.createElement('div');
+      banner.className = 'w-full bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-yellow-100 px-4 py-2 text-center font-semibold mb-4 rounded animate-fade-in';
+      banner.setAttribute('role', 'status');
+      banner.innerHTML = `<span class='mr-2'>💡</span>${facts[Math.floor(Math.random() * facts.length)]}`;
+      document.querySelector('main .max-w-3xl').prepend(banner);
+    }
+
+    // Progress tracking for topics
+    function getProgress() {
+      return JSON.parse(localStorage.getItem('topicProgress') || '{}');
+    }
+    function setProgress(progress) {
+      localStorage.setItem('topicProgress', JSON.stringify(progress));
+    }
+    // Render topics with progress checkboxes and ARIA
+    function renderTopics(content, searchQuery = '') {
+      const container = document.getElementById('topics-content');
+      container.innerHTML = '';
+      const progress = getProgress();
+      let visibleCount = 0;
+      content.topics.forEach((topic, idx) => {
+        const section = document.createElement('section');
+        section.className = 'mb-4 border border-blue-200 dark:border-blue-700 rounded-lg overflow-hidden shadow transition-all duration-300';
+        section.setAttribute('role', 'region');
+        section.setAttribute('aria-labelledby', `topic-header-${idx}`);
+        // Collapsible header
+        const header = document.createElement('button');
+        header.className = 'w-full flex justify-between items-center px-4 py-3 bg-blue-100 dark:bg-blue-900 text-left text-xl font-bold text-blue-800 dark:text-blue-200 focus:outline focus:ring-2 focus:ring-blue-500 transition';
+        header.setAttribute('aria-expanded', idx === 0 ? 'true' : 'false');
+        header.setAttribute('aria-controls', `topic-panel-${idx}`);
+        header.id = `topic-header-${idx}`;
+        // Progress checkbox
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'mr-2 accent-blue-600';
+        checkbox.checked = !!progress[idx];
+        checkbox.setAttribute('aria-label', 'Mark topic as completed');
+        checkbox.addEventListener('change', () => {
+          progress[idx] = checkbox.checked;
+          setProgress(progress);
+        });
+        // Highlight search term in title
+        let titleHtml = topic.title;
+        if (searchQuery) {
+          const re = new RegExp('(' + searchQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig');
+          titleHtml = topic.title.replace(re, '<mark class="bg-yellow-200 dark:bg-yellow-700">$1</mark>');
+        }
+        header.innerHTML = '';
+        header.appendChild(checkbox);
+        const span = document.createElement('span');
+        span.innerHTML = titleHtml;
+        header.appendChild(span);
+        const arrow = document.createElement('span');
+        arrow.className = 'ml-2 transition-transform duration-300';
+        arrow.id = `arrow-${idx}`;
+        arrow.innerHTML = '&#9660;';
+        header.appendChild(arrow);
+        section.appendChild(header);
+        // Collapsible panel
+        const panel = document.createElement('div');
+        panel.id = `topic-panel-${idx}`;
+        panel.className = `topic-panel px-4 pb-4 pt-2 bg-white dark:bg-gray-800 transition-all duration-500 ease-in-out ${idx === 0 ? '' : 'hidden'}`;
+        panel.setAttribute('role', 'region');
+        panel.setAttribute('aria-labelledby', `topic-header-${idx}`);
+        // Highlighted notes
+        panel.innerHTML = topic.ms_learn.map(item =>
+          item.type === 'info'
+            ? `<p class='mb-2 text-lg text-blue-700 dark:text-blue-300 font-semibold bg-blue-50 dark:bg-blue-950 rounded px-2 py-1 animate-fade-in'>${item.content}</p>`
+            : `<ul class='list-disc pl-6 mb-2 text-gray-700 dark:text-gray-200 animate-fade-in'>${item.content.map(li => `<li class='mb-1'>${li}</li>`).join('')}</ul>`
+        ).join('');
+        panel.innerHTML += `<h4 class="text-lg font-semibold mt-4 mb-2 text-blue-600 dark:text-blue-200">Sample Exam Questions</h4>`;
+        // Render questions
+        topic.exam_questions.forEach((q, qidx) => {
+          let qHtml = '';
+          if (q.type === 'standard') {
+            qHtml = `
+              <div class='mb-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900 shadow'>
+                <div class='font-medium mb-2'>${q.question}</div>
+                <input class='answer-input px-3 py-1 rounded border border-blue-300 dark:border-blue-600 mb-2 w-full' placeholder='Type your answer...'>
+                <button class='check-btn px-3 py-1 rounded bg-blue-600 text-white ml-2'>Check</button>
+                <div class='mt-2 text-sm text-gray-700 dark:text-gray-300 explanation hidden' role="alert">Answer: ${q.answer}</div>
+              </div>
+            `;
+          } else if (q.type === 'mcq-multi') {
+            qHtml = `
+              <div class='mb-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900 shadow'>
+                <div class='font-medium mb-2'>${q.question}</div>
+                ${q.choices.map((choice, i) => `<label class='block mb-1'><input type='checkbox' class='mcq-multi' data-idx='${i}' aria-label='${choice}'> ${choice}</label>`).join('')}
+                <button class='check-multi-btn px-3 py-1 rounded bg-blue-600 text-white mt-2'>Check</button>
+                <div class='mt-2 text-sm text-gray-700 dark:text-gray-300 explanation hidden' role="alert">Correct: ${q.answers.map(i => q.choices[i]).join(', ')}<br>${q.explanation || ''}</div>
+              </div>
+            `;
+          } else if (q.type === 'truefalse') {
+            qHtml = `
+              <div class='mb-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900 shadow'>
+                <div class='font-medium mb-2'>${q.question}</div>
+                <button class='tf-btn px-3 py-1 rounded bg-white dark:bg-gray-700 border border-blue-300 dark:border-blue-600 mr-2' aria-label="True answer">True</button>
+                <button class='tf-btn px-3 py-1 rounded bg-white dark:bg-gray-700 border border-blue-300 dark:border-blue-600' aria-label="False answer">False</button>
+                <div class='mt-2 text-sm text-gray-700 dark:text-gray-300 explanation hidden' role="alert">Answer: ${q.answer ? 'True' : 'False'}</div>
+              </div>
+            `;
+          } else if (q.type === 'fill') {
+            qHtml = `
+              <div class='mb-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900 shadow'>
+                <div class='font-medium mb-2'>${q.question}</div>
+                <input class='fill-input px-3 py-1 rounded border border-blue-300 dark:border-blue-600 mb-2 w-full' placeholder='Fill in the blank...'>
+                <button class='fill-check-btn px-3 py-1 rounded bg-blue-600 text-white ml-2'>Check</button>
+                <div class='mt-2 text-sm text-gray-700 dark:text-gray-300 explanation hidden' role="alert">Answer: ${q.answer}</div>
+              </div>
+            `;
+          } else if (q.type === 'scenario') {
+            qHtml = `
+              <div class='mb-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900 shadow'>
+                <div class='font-medium mb-2'>${q.question}</div>
+                <input class='scenario-input px-3 py-1 rounded border border-blue-300 dark:border-blue-600 mb-2 w-full' placeholder='Your answer...'>
+                <button class='scenario-check-btn px-3 py-1 rounded bg-blue-600 text-white ml-2'>Check</button>
+                <div class='mt-2 text-sm text-gray-700 dark:text-gray-300 explanation hidden' role="alert">Answer: ${q.answer}</div>
+              </div>
+            `;
+          } else if (q.type === 'matching') {
+            // Shuffle right side
+            const left = q.pairs.map(p => p.left);
+            const right = q.pairs.map(p => p.right).sort(() => Math.random() - 0.5);
+            qHtml = `<div class='mb-4 p-4 rounded-lg bg-blue-50 dark:bg-blue-900 shadow'>
+              <div class='font-medium mb-2'>${q.question}</div>
+              <div class='grid grid-cols-2 gap-4'>
+                <div>
+                  ${left.map((l, i) => `<div class='mb-2'>${l}</div>`).join('')}
+                </div>
+                <div>
+                  ${right.map((r, i) => `<select class='match-select mb-2 w-full border border-blue-300 dark:border-blue-600 rounded' aria-label="Select matching for ${r}"><option value=''>Select...</option>${left.map((l, j) => `<option value='${j}'>${l}</option>`).join('')}</select>`).join('')}
+                </div>
+              </div>
+              <button class='match-check-btn px-3 py-1 rounded bg-blue-600 text-white mt-2'>Check</button>
+              <div class='mt-2 text-sm text-gray-700 dark:text-gray-300 explanation hidden' role="alert">${q.pairs.map(p => `${p.left} → ${p.right}`).join('<br>')}</div>
+            </div>`;
+          }
+          panel.innerHTML += qHtml;
+        });
+        section.appendChild(panel);
+        // Collapsible logic
+        header.addEventListener('click', (e) => {
+          if (e.target === checkbox) return;
+          const expanded = header.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('.topic-panel').forEach((el, i) => {
+            el.classList.add('hidden');
+            document.getElementById(`arrow-${i}`).style.transform = 'rotate(0deg)';
+            document.querySelector(`[aria-controls='topic-panel-${i}']`).setAttribute('aria-expanded', 'false');
+          });
+          if (!expanded) {
+            panel.classList.remove('hidden');
+            header.setAttribute('aria-expanded', 'true');
+            arrow.style.transform = 'rotate(180deg)';
+          }
+        });
+        container.appendChild(section);
+        visibleCount++;
+      });
+      document.getElementById('topicCount').textContent = visibleCount + ' topics shown';
+    }
+    // Fetch and render topics
+    let topicsData = null;
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('az900-content.json')
+        .then(res => res.json())
+        .then(content => {
+          topicsData = content;
+          renderTopics(content);
+        });
+    });
+    // Search/filter topics with highlight
+    document.getElementById('topicSearch').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      if (topicsData) renderTopics(topicsData, query);
+    });
+    // Clear search button
+    document.getElementById('clearSearch').addEventListener('click', function() {
+      document.getElementById('topicSearch').value = '';
+      if (topicsData) renderTopics(topicsData, '');
+    });
+    // Random Topic button
+    document.getElementById('randomTopic').addEventListener('click', function() {
+      if (!topicsData) return;
+      const idx = Math.floor(Math.random() * topicsData.topics.length);
+      const section = document.querySelectorAll('#topics-content section')[idx];
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const header = section.querySelector('button');
+        header.click();
+        header.focus();
+      }
+    });
+    // Dark mode toggle logic
+    const toggle = document.getElementById('darkModeToggle');
+    const root = document.documentElement;
+    function setDarkMode(on) {
+      if (on) {
+        root.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        toggle.textContent = '☀️';
+      } else {
+        root.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        toggle.textContent = '🌙';
+      }
+    }
+    // Set initial mode
+    const userPref = localStorage.getItem('theme');
+    const systemPref = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setDarkMode(userPref === 'dark' || (!userPref && systemPref));
+    toggle.addEventListener('click', () => {
+      setDarkMode(!root.classList.contains('dark'));
+    });
+    // Topic count on load
+    window.addEventListener('DOMContentLoaded', function() {
+      const total = document.querySelectorAll('#topics-content section').length;
+      document.getElementById('topicCount').textContent = total + ' topics shown';
+    });
+    // Fade-in animation for topic sections
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('#topics-content section').forEach((section, i) => {
+        section.style.opacity = 0;
+        section.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+          section.style.transition = 'opacity 0.7s, transform 0.7s';
+          section.style.opacity = 1;
+          section.style.transform = 'translateY(0)';
+        }, 100 + i * 80);
+      });
+    });
+    // Back to Top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTop.classList.remove('hidden');
+      } else {
+        backToTop.classList.add('hidden');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
